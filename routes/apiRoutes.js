@@ -1,4 +1,5 @@
-var notes = require("../notes");
+var notes = require("../Develop/public/notes");
+var index = require("../Develop/public/index")
 
 module.exports = function(svr) {
   svr.get("/notes", function(req, res) {
