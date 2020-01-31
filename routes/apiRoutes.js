@@ -1,17 +1,17 @@
-var notes = require("../Develop/public/notes");
-var index = require("../Develop/public/index")
+var notes = require("../Develop/db/noteTaker");
 
-module.exports = function(svr) {
-  svr.get("/notes", function(req, res) {
+
+module.exports = function(app) {
+  app.get("/api/notes", function(req, res) {
     res.json(notes);
   });
 
-  svr.post("/notes", function(req, res) {
+  app.post("/api/notes", function(req, res) {
     notes.push(req.body);
     res.json(true);
   });
 
-  svr.post("/notes/:id", function(req, res) {
+  app.delete("/notes/:id", function(req, res) {
     notes.length = 0;
 
     res.json({ ok: true });

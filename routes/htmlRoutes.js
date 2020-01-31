@@ -1,11 +1,15 @@
 var path = require("path");
 
-module.exports = function(svr) {
-  svr.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "../Develop/public/notes.html"));
+module.exports = function(app) {
+  app.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
   });
 
-  svr.get("/index", function(req, res) {
-      res.sendFile(path.join(__dirname, "../Develop/public/index.html"))
-  })
+  app.get("/index", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/index.html"))
+  });
+
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
 };

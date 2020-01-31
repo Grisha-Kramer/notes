@@ -1,15 +1,17 @@
 var express = require("express");
+var path = require("path");
+const fs = require("fs");
 
-var svr = express();
+var app = express();
 
 var PORT = process.env.PORT || 8080;
 
-svr.use(express.urlencoded({ extended: true }));
-svr.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-require("./routes/apiRoutes")(svr);
-require("./routes/htmlRoutes")(svr);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
-svr.listen(PORT, function() {
+app.listen(PORT, function() {
   console.log("Notes app listening on PORT: " + PORT);
 });
