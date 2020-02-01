@@ -13,6 +13,7 @@ module.exports = function(app) {
     // notes.push(req.body);
     // res.json(true);
     var makeNote = req.body;
+    makeNote.id = data.length + 1
 
     console.log(makeNote);
 
@@ -25,7 +26,7 @@ module.exports = function(app) {
   });
 
   app.delete("/notes/:id", function(req, res) {
-    notes.length = 0;
+    data.length = 0;
 
     res.json({ ok: true });
   });
