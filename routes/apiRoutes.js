@@ -18,7 +18,7 @@ module.exports = function(app) {
 
     data.push(makeNote);
 
-    fs.writeFile("../Develop/db/db.json", JSON.stringify(data), function(err) {
+    fs.writeFile("./Develop/db/db.json", JSON.stringify(data), function(err) {
       if (err) throw err;
       console.log("makeNote worked");
     });
