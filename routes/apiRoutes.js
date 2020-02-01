@@ -25,9 +25,19 @@ module.exports = function(app) {
     });
   });
 
-  app.delete("/notes/:id", function(req, res) {
-    data.length = 0;
-
-    res.json({ ok: true });
+  app.delete("/api/notes/:id", function(req, res) {
+    console.log(':id param', req.params.id)
+    data = data.filter(function (note) {
+      if (note.id != req.params.id) {
+        return true
+      }
+    })
+    fs.writeFile("./Develop/db/db.json", JSON.stringify(data), function (err) {
+      if (err) throw err;
+      console.log("deletes")
+       res.json({ ok: true });
+    })
+    
+   
   });
 };
