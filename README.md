@@ -15,8 +15,10 @@ This app allows the user to leave and store notes, and uses an Express backend.
 # User Story
 
 As an busy person,
+
 I need to be leave myself reminders
-So I finish all my tasks.
+
+So I can finish all my tasks.
 
 
 
